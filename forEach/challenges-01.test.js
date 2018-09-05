@@ -48,7 +48,6 @@ const addBonusPoints = (arr) => {
 // ------------------------------------------------------------------------------------------------
 
 const addCurve = (arr) => {
-  // Solution code here...
   let returnArr = [];
   for (let i in arr){
     arr[i] *= 1.05;
@@ -69,7 +68,6 @@ const addCurve = (arr) => {
 const greeting = word => word.toUpperCase();
 
 const speaker = (message, callback) => {
-  // Solution code here...
   return callback(message);
 }
 
@@ -116,16 +114,14 @@ const addNumbers = (num, arr, times, callback) => {
 // ------------------------------------------------------------------------------------------------
 
 const removeOne = (num, input) => {
-  // Solution code here...
   if (num % 3 === 2){
     input.pop()
   }
 }
 
 const removeElements = (input, callback) => {
-  // Solution code here...
-  for (let i in input){
-    callback(input[i], input)
+  for (let i of input){
+    callback(i, input)
   }
   return input;
 }
@@ -137,7 +133,10 @@ const removeElements = (input, callback) => {
 // ------------------------------------------------------------------------------------------------
 
 const removeWithForEach = (input, callback) => {
-  // Solution code here...
+  input.forEach((value) => {
+    callback(value, input);
+  })
+  return input;
 }
 
 // ------------------------------------------------------------------------------------------------
@@ -152,7 +151,12 @@ const removeWithForEach = (input, callback) => {
 // ------------------------------------------------------------------------------------------------
 
 const removeWithAnon = (input) => {
-  // Solution code here...
+  input.forEach((value, index, input) => {
+    if(value % 3 === 2){
+      input.pop();
+    }
+  });
+  return input;
 }
 
 // ------------------------------------------------------------------------------------------------
@@ -174,7 +178,13 @@ const removeWithAnon = (input) => {
 // ------------------------------------------------------------------------------------------------
 
 const createList = (availableItems) => {
-  // Solution code here...
+  let groceryList = [];
+  availableItems.forEach((item) => {
+    if (item.available){
+      groceryList.push(item.name);
+    }
+  });
+  return groceryList;
 }
 
 // ------------------------------------------------------------------------------------------------
@@ -192,7 +202,19 @@ const createList = (availableItems) => {
 // ------------------------------------------------------------------------------------------------
 
 const fizzbuzz = (arr) => {
-  // Solution code here...
+  let returnArr = [];
+  arr.forEach((value) => {
+    if (value % 15 === 0){
+      returnArr.push('Fizz Buzz');
+    } else if (value % 5 === 0){
+      returnArr.push('Buzz');
+    } else if (value % 3 === 0){
+      returnArr.push('Fizz');
+    } else {
+      returnArr.push(value);
+    }
+  });
+  return returnArr;
 }
 
 // ------------------------------------------------------------------------------------------------
