@@ -49,6 +49,12 @@ const addBonusPoints = (arr) => {
 
 const addCurve = (arr) => {
   // Solution code here...
+  let returnArr = [];
+  for (let i in arr){
+    arr[i] *= 1.05;
+    returnArr.push(arr[i]);
+  }
+  return returnArr;
 }
 
 // ------------------------------------------------------------------------------------------------
@@ -60,12 +66,11 @@ const addCurve = (arr) => {
 // The speaker function should return the string in all uppercase letters only by invoking the callback.
 // ------------------------------------------------------------------------------------------------
 
-const greeting = (word) => {
-  // Solution code here...
-}
+const greeting = word => word.toUpperCase();
 
 const speaker = (message, callback) => {
   // Solution code here...
+  return callback(message);
 }
 
 // ------------------------------------------------------------------------------------------------
@@ -86,11 +91,14 @@ const speaker = (message, callback) => {
 // ------------------------------------------------------------------------------------------------
 
 const addValues = (arr, value) => {
-  // Solution code here...
+  arr.push(value);
 }
 
 const addNumbers = (num, arr, times, callback) => {
-  // Solution code here...
+  for (let i = 0;i < times;i++){
+    callback(arr, num);
+  }
+  return arr;
 }
 
 // ------------------------------------------------------------------------------------------------
@@ -109,10 +117,17 @@ const addNumbers = (num, arr, times, callback) => {
 
 const removeOne = (num, input) => {
   // Solution code here...
+  if (num % 3 === 2){
+    input.pop()
+  }
 }
 
 const removeElements = (input, callback) => {
   // Solution code here...
+  for (let i in input){
+    callback(input[i], input)
+  }
+  return input;
 }
 
 // ------------------------------------------------------------------------------------------------
