@@ -53,6 +53,14 @@ const grandTotal = (hours, stores) => {
 
 const salesData = (data) => {
   // Solution code here...
+  let returnArr = [];
+  data.forEach((hourlySale, i) => {
+    let salesData = {};
+    salesData.sales = `${hourlySale} cookies`;
+    salesData.time = `${hoursOpen[i]}`;
+    returnArr.push(salesData);
+  })
+  return returnArr;
 };
 
 // ------------------------------------------------------------------------------------------------
