@@ -174,6 +174,16 @@ const lowestWeeklyAverage = (weather) => {
 
 const excel = (str) => {
   // Solution code here...
+  let strArr = str.split('\n');
+  let returnArr = [];
+  for (let i = 0; i < strArr.length; i++){
+    let total = 0;
+    for (let k = 0; k < strArr[i].length; k+=2){
+      total += parseInt(strArr[i][k]);
+    }
+    returnArr.push(total);
+  }
+  return returnArr;
 };
 
 // ------------------------------------------------------------------------------------------------
@@ -197,7 +207,20 @@ const excel = (str) => {
 //   ['X', 'O', 'X'],
 // ];
 // ------------------------------------------------------------------------------------------------
-
+const helpCheck = (board, row1, col1, row2, col2, row3, col3) => {
+  //Diagonal wins
+  // [[0,0],[1,1],[2,2]]
+  // [[0,2],[1,1],[2,0]]
+  // //Hor wins
+  // [[0,0],[0,1],[0,2]]
+  // [[1,0],[1,1],[1,2]]
+  // [[2,0],[2,1],[2,2]]
+  // //Vert wins
+  // [[0,0],[1,0],[2,0]]
+  // [[0,1],[1,1],[2,1]]
+  // [[0,2],[1,2],[2,2]]
+  
+}
 const detectTicTacToeWin = (board) => {
   // Solution code here...
 };
