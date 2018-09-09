@@ -116,7 +116,6 @@ const noPunctuation = input => {
 let hangman = (str) => {
   let returnStr = '';
   let regex = /[a|e|i|o|u]/
-  // Solution code here...
   for (let i = 0; i < str.length; i++){
     if (regex.test(str[i])){
       returnStr += '_';
@@ -140,7 +139,8 @@ let hangman = (str) => {
 const seashells = 'She sells seashells by the seashore. The shells she sells are surely seashells. So if she sells shells on the seashore, I\'m sure she sells seashore shells.';
 
 const findShells = (phrase) => {
-  // Solution code here...
+  let regex = /[A-Za-z]+ells/g;
+  return phrase.match(regex);
 };
 
 // ------------------------------------------------------------------------------------------------
