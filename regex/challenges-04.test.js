@@ -15,7 +15,6 @@
 // ------------------------------------------------------------------------------------------------
 
 const isNum = (num) => {
-  // Solution code here...
   let regex = /\d/;
   return regex.test(num);
 };
@@ -49,7 +48,6 @@ const isCapitalized = (string) => {
 // ------------------------------------------------------------------------------------------------
 
 const citiesAtoJ = (cities) => {
-  // Solution code here...
   let returnArr = [];
   let regex = /^[A-Ja-j]/;
   cities.forEach((city) => {
@@ -73,7 +71,6 @@ const citiesAtoJ = (cities) => {
 // ------------------------------------------------------------------------------------------------
 
 const matchMonth = (input) => {
-  // Solution code here...
   let regex = /^Oct$|^october$|^oct$|^October$/
   return regex.test(input);
 };
@@ -92,7 +89,15 @@ const matchMonth = (input) => {
 // ------------------------------------------------------------------------------------------------
 
 const noPunctuation = input => {
-  // Solution code here...
+  let returnArr = [];
+  let regex = /,$|\.$/;
+  let test = input.split(' ');
+  test.forEach((word) => {
+    if(!regex.test(word)){
+      returnArr.push(word + ' ');
+    }
+  })
+  return returnArr;
 };
 
 // ------------------------------------------------------------------------------------------------
@@ -109,7 +114,17 @@ const noPunctuation = input => {
 // ------------------------------------------------------------------------------------------------
 
 let hangman = (str) => {
+  let returnStr = '';
+  let regex = /[a|e|i|o|u]/
   // Solution code here...
+  for (let i = 0; i < str.length; i++){
+    if (regex.test(str[i])){
+      returnStr += '_';
+    } else {
+      returnStr += str[i];
+    }
+  }
+  return returnStr;
 };
 
 // ------------------------------------------------------------------------------------------------
