@@ -175,7 +175,7 @@ const removeEvenValues = (input) => {
 // ------------------------------------------------------------------------------------------------
 
 const removeLastCharacters = (str, numberOfCharacters) => {
-  // Solution code here...
+  return str.slice(0, str.length - numberOfCharacters);
 };
 
 // ------------------------------------------------------------------------------------------------
@@ -188,7 +188,14 @@ const removeLastCharacters = (str, numberOfCharacters) => {
 // ------------------------------------------------------------------------------------------------
 
 const removeVowels = (input) => {
-  // Solution code here...
+  let split = input.split('');
+  let temp = split.slice();
+  temp.forEach((char) => {
+    if (char === 'a' || char === 'e' || char === 'i' || char === 'o' || char === 'u'){
+      split.splice(split.indexOf(char), 1);
+    }
+  });
+  return split.join('');
 };
 
 // ------------------------------------------------------------------------------------------------
@@ -203,7 +210,20 @@ const removeVowels = (input) => {
 // ------------------------------------------------------------------------------------------------
 
 const extractVowels = (input) => {
-  // Solution code here...
+  let returnArr = [];
+  let split = input.split('');
+  let temp = split.slice();
+  let holder = ''
+  temp.forEach((char) => {
+    if (char === 'a' || char === 'e' || char === 'i' || char === 'o' || char === 'u'){
+      split.splice(split.indexOf(char), 1);
+      holder += char;
+    }
+  })
+  let vowel = holder.split('').sort().join('');
+  returnArr.push(split.join(''));
+  returnArr.push(vowel);
+  return returnArr;
 };
 
 // ------------------------------------------------------------------------------------------------
