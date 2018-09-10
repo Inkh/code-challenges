@@ -16,7 +16,9 @@
 
 const howMuchPencil = (name) => {
   let result = [];
-  // Solution code here...
+  for (let i = 0; i < name.length + 1; i++){
+    result.push(name.slice(i, name.length));
+  }
   return result;
 };
 
@@ -30,7 +32,7 @@ const howMuchPencil = (name) => {
 // ------------------------------------------------------------------------------------------------
 
 const wordsToCharList = (input) => {
-  // Solution code here...
+  return input.split('');
 };
 
 // ------------------------------------------------------------------------------------------------
@@ -42,7 +44,10 @@ const wordsToCharList = (input) => {
 
 const totalSumCSV = (input) => {
   let total = 0;
-  // Solution code here...
+  let split = input.split(',');
+  split.forEach((num) => {
+    total += parseInt(num);
+  })
   return total;
 };
 
@@ -90,7 +95,9 @@ const gruffaloCrumble = {
 
 const listFoods = (recipe) => {
   let result = [];
-  // Solution code here...
+  recipe.ingredients.forEach((ingredient) => {
+    result.push(ingredient.slice(ingredient.indexOf(' ', 3) + 1, ingredient.length));
+  });
   return result;
 }
 
