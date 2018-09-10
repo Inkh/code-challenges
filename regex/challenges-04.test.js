@@ -71,7 +71,8 @@ const citiesAtoJ = (cities) => {
 // ------------------------------------------------------------------------------------------------
 
 const matchMonth = (input) => {
-  let regex = /^Oct$|^october$|^oct$|^October$/
+  // let regex = /^Oct$|^october$|^oct$|^October$/;
+  let regex = /^[oO]ct(ober)?$/;
   return regex.test(input);
 };
 
