@@ -114,7 +114,10 @@ const listFoods = (recipe) => {
 
 const stepActions = (recipe) => {
   let result = [];
-  // Solution code here...
+  recipe.steps.forEach((step) => {
+    let temp = step.split(' ');
+    result.push(temp[0])
+  })
   return result;
 }
 
@@ -127,7 +130,10 @@ const stepActions = (recipe) => {
 
 const splitFoods = (recipe) => {
   let result = [];
-  // Solution code here...
+  recipe.ingredients.forEach((ingredient) => {
+    let temp = ingredient.split(' ');
+    result.push(temp.slice(2, temp.length).join(' '));
+  })
   return result;
 }
 
@@ -145,7 +151,13 @@ const splitFoods = (recipe) => {
 // ------------------------------------------------------------------------------------------------
 
 const removeEvenValues = (input) => {
-  // Solution code here...
+  let tester = input.slice();
+  tester.forEach((num) => {
+    if (num % 2 === 0){
+      input.splice(input.indexOf(num), 1);
+    }
+  });
+  return input;
 };
 
 // ------------------------------------------------------------------------------------------------
