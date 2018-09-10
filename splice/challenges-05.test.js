@@ -188,14 +188,15 @@ const removeLastCharacters = (str, numberOfCharacters) => {
 // ------------------------------------------------------------------------------------------------
 
 const removeVowels = (input) => {
-  let split = input.split('');
-  let temp = split.slice();
-  temp.forEach((char) => {
-    if (char === 'a' || char === 'e' || char === 'i' || char === 'o' || char === 'u'){
-      split.splice(split.indexOf(char), 1);
-    }
-  });
-  return split.join('');
+  // let split = input.split('');
+  // let temp = split.slice();
+  // temp.forEach((char) => {
+  //   if (char === 'a' || char === 'e' || char === 'i' || char === 'o' || char === 'u'){
+  //     split.splice(split.indexOf(char), 1);
+  //   }
+  // });
+  // return split.join('');
+  return input.replace(/[aeiou]/ig,'');
 };
 
 // ------------------------------------------------------------------------------------------------
