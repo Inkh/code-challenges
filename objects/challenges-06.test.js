@@ -48,13 +48,7 @@ const courseInfo = { name: 'Code 301', duration: { dayTrack: '4 weeks', eveningT
   finalExam: true };
 
 const getFrom = (obj, property) => {
-  if (property === 'keys') {
-    return Object.keys(obj);
-  } else if (property === 'values'){
-    return Object.values(obj);
-  } else {
-    return Object.entries(obj);
-  }
+  return Object[property](obj);
 }
 
 // ------------------------------------------------------------------------------------------------
@@ -128,7 +122,6 @@ const getHouses = (arr) => {
     let house = getFrom(object, 'values');
     returnArr.push(house[house.length - 1]);
   });
-  // console.log(getFrom(arr, 'values'));
   return returnArr;
 }
 
@@ -140,7 +133,15 @@ const getHouses = (arr) => {
 // ------------------------------------------------------------------------------------------------
 
 const hasChildrenValues = (arr, character) => {
-  // Solution code here...
+  let flag = true;
+  getFrom(arr, 'values').forEach((char) => {
+    if (char.name === character) {
+      if (char.children.length === 0){
+        flag = false
+      }
+    }
+  });
+  return flag;
 }
 
 // ------------------------------------------------------------------------------------------------
