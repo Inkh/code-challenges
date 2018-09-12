@@ -77,13 +77,7 @@ const charCode = (input) => {
 
 const evenOdd = (input) => {
   return input.map(num => {
-    if (num % 2 === 0){
-      return 'even';
-    } else if (num % 2 === 1) {
-      return 'odd';
-    } else {
-      return 'N/A';
-    }
+    return typeof(num) === 'number' ? num % 2 === 0 ? 'even' : 'odd' : 'N/A';
   })
 };
 
