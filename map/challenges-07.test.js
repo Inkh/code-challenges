@@ -76,9 +76,7 @@ const charCode = (input) => {
 // ------------------------------------------------------------------------------------------------
 
 const evenOdd = (input) => {
-  return input.map(num => {
-    return typeof(num) === 'number' ? num % 2 === 0 ? 'even' : 'odd' : 'N/A';
-  })
+  return input.map(num => typeof(num) === 'number' ? num % 2 === 0 ? 'even' : 'odd' : 'N/A' );
 };
 
 // ------------------------------------------------------------------------------------------------
@@ -169,9 +167,7 @@ const snorlaxStats = {
 };
 
 const extractStats = (stats) => {
-  return stats.map(stat => {
-    return {name: stat.stat.name, total: stat.effort + stat.baseStat}
-  })
+  return stats.map(stat => ({name: stat.stat.name, total: stat.effort + stat.baseStat}));
 };
 
 // ------------------------------------------------------------------------------------------------
