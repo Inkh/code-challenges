@@ -13,7 +13,6 @@
 // ------------------------------------------------------------------------------------------------
 
 const forLoopTwoToThe = (input) => {
-  // Solution code here...
   // return input.map(num => 2**num);
   let returnArr = [];
   for (let i = 0; i < input.length; i++){
@@ -31,6 +30,11 @@ const forLoopTwoToThe = (input) => {
 
 const forEachTwoToThe = (input) => {
   // Solution code here...
+  let result = [];
+  input.forEach(num => {
+    result.push(2**num);
+  });
+  return result;
 };
 
 // ------------------------------------------------------------------------------------------------
@@ -42,7 +46,7 @@ const forEachTwoToThe = (input) => {
 // ------------------------------------------------------------------------------------------------
 
 const mapTwoToThe = (input) => {
-  // Solution code here...
+  return input.map(num => 2**num);
 }
 
 // ------------------------------------------------------------------------------------------------
@@ -57,7 +61,7 @@ const mapTwoToThe = (input) => {
 // ------------------------------------------------------------------------------------------------
 
 const charCode = (input) => {
-  // Solution code here...
+  return input.map(char => char.charCodeAt());
 };
 
 // ------------------------------------------------------------------------------------------------
@@ -72,7 +76,15 @@ const charCode = (input) => {
 // ------------------------------------------------------------------------------------------------
 
 const evenOdd = (input) => {
-  // Solution code here...
+  return input.map(num => {
+    if (num % 2 === 0){
+      return 'even';
+    } else if (num % 2 === 1) {
+      return 'odd';
+    } else {
+      return 'N/A';
+    }
+  })
 };
 
 // ------------------------------------------------------------------------------------------------
@@ -116,7 +128,7 @@ const snorlaxAbilities = {
 };
 
 const extractAbilities = (abilities) => {
-  // Solution code here...
+  return abilities.map(move => move.ability.name);
 };
 
 // ------------------------------------------------------------------------------------------------
