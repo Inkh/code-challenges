@@ -11,7 +11,6 @@
 
 const oddValues = (input) => {
   return input.filter(num => num % 2 !== 0);
-  // Solution code here...
 };
 
 // ------------------------------------------------------------------------------------------------
@@ -27,7 +26,7 @@ const oddValues = (input) => {
 
 
 const filterStringsWithVowels = (input) => {
-  // Solution code here...
+  return input.filter(char => /[aeiou]/.test(char));
 };
 
 
@@ -41,7 +40,7 @@ const filterStringsWithVowels = (input) => {
 // ------------------------------------------------------------------------------------------------
 
 const notInFirstArray = (forbiddenValues, input) => {
-  // Solution code here...
+  return input.filter(value => !forbiddenValues.includes(value));
 };
 
 // ------------------------------------------------------------------------------------------------
@@ -87,7 +86,7 @@ const snorlaxData = {
 };
 
 const getBaseStatGreaterThan = (input, minBaseStat) => {
-  // Solution code here...
+  return input.filter(stat => stat.baseStat > minBaseStat);
 };
 
 // ------------------------------------------------------------------------------------------------
