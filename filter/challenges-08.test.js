@@ -100,7 +100,7 @@ const getBaseStatGreaterThan = (input, minBaseStat) => {
 // ------------------------------------------------------------------------------------------------
 
 const getStatName = (input, minBaseStat) => {
-  // Solution code here...
+  return input.filter(stat => stat.baseStat > minBaseStat).map(val => val.stat.name);
 };
 
 // ------------------------------------------------------------------------------------------------
@@ -154,7 +154,7 @@ const characters = [
 ];
 
 const getCharactersWithoutChildren = (input) => {
-  // Solution code here...
+  return input.filter(char => !char.children);
 };
 
 // ------------------------------------------------------------------------------------------------
@@ -168,7 +168,7 @@ const getCharactersWithoutChildren = (input) => {
 // ------------------------------------------------------------------------------------------------
 
 const evenOddNumericValues = (input) => {
-  // Solution code here...
+  return input.filter(val => typeof val === 'number').map(num => num % 2 === 0 ? 'even' : 'odd');
 };
 
 // ------------------------------------------------------------------------------------------------
