@@ -65,7 +65,7 @@ const characters = [
 ];
 
 const countNumberOfChildren = (input) => {
-  // Solution code here...
+  return input.reduce((total, curr) => total + (curr.children ? curr.children.length : 0), 0);
 };
 
 // ------------------------------------------------------------------------------------------------
@@ -109,7 +109,7 @@ const snorlaxData = {
 };
 
 const extractStat = (statName, input) => {
-  // Solution code here...
+  return input.reduce((total, stat) => stat.stat.name === statName ? total.concat(stat) : total, [])[0];
 };
 
 // ------------------------------------------------------------------------------------------------
@@ -120,7 +120,7 @@ const extractStat = (statName, input) => {
 // ------------------------------------------------------------------------------------------------
 
 const calculateAverage = (input) => {
-  // Solution code here...
+  return input.reduce((avg, num) =>  avg + num/input.length , 0);
 };
 
 // ------------------------------------------------------------------------------------------------
@@ -134,7 +134,7 @@ const calculateAverage = (input) => {
 // ------------------------------------------------------------------------------------------------
 
 const extractChildren = input => {
-  // Solution code here...
+  return input.filter(data => /[a]/.test(data.name)).reduce((total, char) => char.children ? total.concat(char.children) : total,[]);
 };
 
 // ------------------------------------------------------------------------------------------------
