@@ -109,7 +109,7 @@ const snorlaxData = {
 };
 
 const extractStat = (statName, input) => {
-  return input.reduce((total, stat) => stat.stat.name === statName ? total.concat(stat) : total, [])[0];
+  return input.reduce((total, stat) => stat.stat.name === statName ? stat : total, null);
 };
 
 // ------------------------------------------------------------------------------------------------
@@ -120,7 +120,7 @@ const extractStat = (statName, input) => {
 // ------------------------------------------------------------------------------------------------
 
 const calculateAverage = (input) => {
-  return input.reduce((avg, num) =>  avg + num/input.length , 0);
+  return input.reduce((avg, num) => avg + num / input.length, 0);
 };
 
 // ------------------------------------------------------------------------------------------------
@@ -134,7 +134,7 @@ const calculateAverage = (input) => {
 // ------------------------------------------------------------------------------------------------
 
 const extractChildren = input => {
-  return input.filter(data => /[a]/.test(data.name)).reduce((total, char) => char.children ? total.concat(char.children) : total,[]);
+  return input.filter(data => /[a]/i.test(data.name)).reduce((total, char) => char.children ? total.concat(char.children) : total, []);
 };
 
 // ------------------------------------------------------------------------------------------------
@@ -169,7 +169,7 @@ const isPrime = (value) => {
 };
 
 const countPrimeNumbers = (input) => {
-  return input.reduce((counter, num) => isPrime(num) ? counter += 1 : counter,0);
+  return input.reduce((counter, num) => isPrime(num) ? counter += 1 : counter, 0);
 }
 
 // ------------------------------------------------------------------------------------------------
@@ -197,7 +197,8 @@ let starWarsData = [{
   skin_color: 'gold',
   eye_color: 'yellow',
   birth_year: '112BBY',
-  gender: 'n/a'},
+  gender: 'n/a'
+},
 {
   name: 'R2-D2',
   height: '96',
@@ -230,7 +231,7 @@ let starWarsData = [{
 }]
 
 const returnNames = (data) => {
-  return data.reduce((names, char) => names.concat(char.name),[]);
+  return data.reduce((names, char) => names.concat(char.name), []);
 };
 
 // ------------------------------------------------------------------------------------------------
@@ -264,13 +265,26 @@ describe('Testing challenge 3', () => {
 
 describe('Testing challenge 4', () => {
   test('It should return the average of the numbers in the array', () => {
-    expect(calculateAverage([18, 290, 37, 4, 55, 16, 7, 85 ])).toStrictEqual(64);
+    expect(calculateAverage([18, 290, 37, 4, 55, 16, 7, 85])).toStrictEqual(64);
   });
 });
-
+describe('Testing challenge 3', () => {
+  test('It should return any stats that match the input', () => {
+    expect(extractStat('speed', snorlaxData.stats)).toStrictEqual({ stat: { url: 'https://pokeapi.co/api/v2/stat/6/', name: 'speed' }, effort: 5, baseStat: 30 });
+    expect(extractStat('special-attack', snorlaxData.stats)).toStrictEqual({
+      stat: {
+        url: 'https://pokeapi.co/api/v2/stat/4/',
+        name: 'special-attack',
+      },
+      effort: 9,
+      baseStat: 65,
+    });
+    expect(extractStat('not a real stat', snorlaxData.stats)).toBeNull();
+  });
+});
 describe('Testing challenge 5', () => {
   test('It should return an array containing the names of the children', () => {
-    expect(extractChildren(characters)).toStrictEqual([ 'Robb', 'Sansa', 'Arya', 'Bran', 'Rickon', 'Drogon', 'Rhaegal', 'Viserion', 'Margaery', 'Loras' ]);
+    expect(extractChildren(characters)).toStrictEqual(['Robb', 'Sansa', 'Arya', 'Bran', 'Rickon', 'Drogon', 'Rhaegal', 'Viserion', 'Margaery', 'Loras']);
     expect(extractChildren(characters).length).toStrictEqual(10);
   });
 });
@@ -289,7 +303,7 @@ describe('Testing challenge 7', () => {
 
 describe('Testing challenge 8', () => {
   test('It should return a count of the prime numbers in the array', () => {
-    expect(returnNames(starWarsData)).toStrictEqual([ 'Luke Skywalker', 'C-3PO', 'R2-D2', 'Darth Vader', 'Leia Organa' ]);
+    expect(returnNames(starWarsData)).toStrictEqual(['Luke Skywalker', 'C-3PO', 'R2-D2', 'Darth Vader', 'Leia Organa']);
     expect(returnNames(starWarsData).length).toStrictEqual(5);
   });
 });
