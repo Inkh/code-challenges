@@ -147,7 +147,7 @@ const extractChildren = input => {
 // ------------------------------------------------------------------------------------------------
 
 const reversedString = (input) => {
-  // Solution code here...
+  return input.split('').reduce((reversed, str) => str + reversed);
 };
 
 // ------------------------------------------------------------------------------------------------
@@ -160,7 +160,7 @@ const reversedString = (input) => {
 // ------------------------------------------------------------------------------------------------
 
 const isPrime = (value) => {
-  for (let i = 2; i < value; i++) {
+  for (let i = 2; i * i < value; i++) {
     if (value % i === 0) {
       return false;
     }
@@ -169,7 +169,7 @@ const isPrime = (value) => {
 };
 
 const countPrimeNumbers = (input) => {
-  // Solution code here...
+  return input.reduce((counter, num) => isPrime(num) ? counter += 1 : counter,0);
 }
 
 // ------------------------------------------------------------------------------------------------
@@ -230,7 +230,7 @@ let starWarsData = [{
 }]
 
 const returnNames = (data) => {
-  // Solution code here...
+  return data.reduce((names, char) => names.concat(char.name),[]);
 };
 
 // ------------------------------------------------------------------------------------------------
