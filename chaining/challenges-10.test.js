@@ -26,7 +26,7 @@ const count = (target, input) => {
 // ------------------------------------------------------------------------------------------------
 
 const totalSum = (input) => {
-  // Solution code here...
+  return input.reduce((result, val) => result.concat(val), []).reduce((total, num) => total + num);
 };
 
 // ------------------------------------------------------------------------------------------------
@@ -42,9 +42,8 @@ const totalSum = (input) => {
 // ------------------------------------------------------------------------------------------------
 
 const divisibleByFiveTwoToThePower = (input) => {
-  // Solution code here...
+  return input.map(arr => arr.filter(val => val % 5 === 0 && typeof (val) === 'number').map(val => 2 ** val));
 };
-
 // ------------------------------------------------------------------------------------------------
 // CHALLENGE 4
 //
@@ -108,7 +107,7 @@ let starWarsData = [{
 }]
 
 let findMaleAndFemale = (data) => {
-  // Solution code here...
+  return data.reduce((result, char) => char.gender === 'male' ? result.concat(char.name) : char.gender === 'female' ? result.concat(char.name) : result, []).join(' and ');
 }
 
 // ------------------------------------------------------------------------------------------------
