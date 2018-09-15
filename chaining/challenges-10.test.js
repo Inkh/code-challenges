@@ -119,7 +119,7 @@ let findMaleAndFemale = (data) => {
 // ------------------------------------------------------------------------------------------------
 
 let findShortest = (data) => {
-  // Solution code here...
+  return data.reduce((shortest, char) => shortest.height > char.height ? char : shortest).name;
 }
 
 // ------------------------------------------------------------------------------------------------
