@@ -77,7 +77,7 @@ const sortByPrice = (objs) => {
 // ------------------------------------------------------------------------------------------------
 
 const sortNumbersByLength = (nums) => {
-  // Solution code here...
+  return nums.sort((a, b) => String(a).length > String(b).length);
 };
 
 // -----------------------------------------------------------------------------------------------
@@ -101,7 +101,7 @@ const people = [
 ];
 
 const sortPeople = (people) => {
-  // Solution code here...
+  return people.sort((a, b) => a.lastName > b.lastName)
 };
 
 // ------------------------------------------------------------------------------------------------
