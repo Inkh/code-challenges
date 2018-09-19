@@ -116,7 +116,16 @@ const sortPeople = (people) => {
 // ------------------------------------------------------------------------------------------------
 
 const sortPeopleBetter = (people) => {
-  // Solution code here...
+  return people.sort((a, b) => {
+    if (a.lastName === b.lastName){
+      if (a.firstName === b.firstName) {
+        return a.age > b.age;
+      } else {
+        return a.firstName > b.firstName;
+      }
+    }
+    return a.lastName > b.lastName
+  })
 };
 
 // ------------------------------------------------------------------------------------------------
@@ -145,7 +154,18 @@ const meetings = [
 ];
 
 const sortMeetingsByDay = (meetings) => {
-  // Solution code here...
+  let weekDays = {
+    'Monday': 1,
+    'Tuesday': 2,
+    'Wednesday': 3,
+    'Thursday': 4,
+    'Friday': 5
+  }
+  return meetings.sort((a, b) => {
+    let dayOne = a.dayOfWeek;
+    let dayTwo = b.dayOfWeek;
+    return weekDays[dayOne] > weekDays[dayTwo];
+  })
 };
 
 // ------------------------------------------------------------------------------------------------
@@ -158,7 +178,21 @@ const sortMeetingsByDay = (meetings) => {
 // ------------------------------------------------------------------------------------------------
 
 const sortSchedule = (meetings) => {
-  // Solution code here...
+  let weekDays = {
+    'Monday': 1,
+    'Tuesday': 2,
+    'Wednesday': 3,
+    'Thursday': 4,
+    'Friday': 5
+  }
+  return meetings.sort((a, b) => {
+    let dayOne = a.dayOfWeek;
+    let dayTwo = b.dayOfWeek;
+    if (dayOne === dayTwo) {
+      return Number(a.end) > Number(b.end)
+    } 
+    return weekDays[dayOne] > weekDays[dayTwo];
+  })
 };
 
 // ------------------------------------------------------------------------------------------------
