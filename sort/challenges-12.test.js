@@ -161,11 +161,7 @@ const sortMeetingsByDay = (meetings) => {
     'Thursday': 4,
     'Friday': 5
   }
-  return meetings.sort((a, b) => {
-    let dayOne = a.dayOfWeek;
-    let dayTwo = b.dayOfWeek;
-    return weekDays[dayOne] > weekDays[dayTwo];
-  })
+  return meetings.sort((a, b) => weekDays[a.dayOfWeek] > weekDays[b.dayOfWeek])
 };
 
 // ------------------------------------------------------------------------------------------------
@@ -178,20 +174,15 @@ const sortMeetingsByDay = (meetings) => {
 // ------------------------------------------------------------------------------------------------
 
 const sortSchedule = (meetings) => {
-  let weekDays = {
-    'Monday': 1,
-    'Tuesday': 2,
-    'Wednesday': 3,
-    'Thursday': 4,
-    'Friday': 5
-  }
   return meetings.sort((a, b) => {
-    let dayOne = a.dayOfWeek;
-    let dayTwo = b.dayOfWeek;
-    if (dayOne === dayTwo) {
-      return Number(a.end) > Number(b.end)
-    } 
-    return weekDays[dayOne] > weekDays[dayTwo];
+    let weekDays = {
+      'Monday': 1,
+      'Tuesday': 2,
+      'Wednesday': 3,
+      'Thursday': 4,
+      'Friday': 5
+    }
+    return a.dayOfWeek === b.dayOfWeek ? Number(a.end) > Number(b.end) : weekDays[a.dayOfWeek] > weekDays[b.dayOfWeek]
   })
 };
 
