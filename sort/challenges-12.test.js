@@ -22,7 +22,7 @@ const sortBackwards = (nums) => {
 // ------------------------------------------------------------------------------------------------
 
 const alphabetize = (strings) => {
-  return strings.sort((a, b) => a > b);
+  return strings.sort();
 };
 
 // ------------------------------------------------------------------------------------------------
@@ -174,16 +174,14 @@ const sortMeetingsByDay = (meetings) => {
 // ------------------------------------------------------------------------------------------------
 
 const sortSchedule = (meetings) => {
-  return meetings.sort((a, b) => {
-    let weekDays = {
-      'Monday': 1,
-      'Tuesday': 2,
-      'Wednesday': 3,
-      'Thursday': 4,
-      'Friday': 5
-    }
-    return a.dayOfWeek === b.dayOfWeek ? Number(a.end) > Number(b.end) : weekDays[a.dayOfWeek] > weekDays[b.dayOfWeek]
-  })
+  let weekDays = {
+    'Monday': 1,
+    'Tuesday': 2,
+    'Wednesday': 3,
+    'Thursday': 4,
+    'Friday': 5
+  }
+  return meetings.sort((a, b) => a.dayOfWeek === b.dayOfWeek ? Number(a.end) > Number(b.end) : weekDays[a.dayOfWeek] > weekDays[b.dayOfWeek]);
 };
 
 // ------------------------------------------------------------------------------------------------
