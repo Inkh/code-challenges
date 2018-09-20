@@ -113,18 +113,19 @@ const unenrollBrook = (roster) => {
 const daysOfWeek = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
 
 const sortByDay = (eventStrings) => {
-  let result = [];
+  return daysOfWeek.map(day => eventStrings.filter(event => event.includes(day)));
+  // let result = [];
 
-  for(let i = 0; i < daysOfWeek.length; i++){
-    let subArr = [];
-    for(let k = 0; k <eventStrings.length;k++){
-      if (eventStrings[k].includes(daysOfWeek[i])){
-        subArr.push(eventStrings[k]);
-      }
-    }
-    result.push(subArr);
-  }
-  return result;
+  // for(let i = 0; i < daysOfWeek.length; i++){
+  //   let subArr = [];
+  //   for(let k = 0; k <eventStrings.length;k++){
+  //     if (eventStrings[k].includes(daysOfWeek[i])){
+  //       subArr.push(eventStrings[k]);
+  //     }
+  //   }
+  //   result.push(subArr);
+  // }
+  // return result;
 };
 
 // ------------------------------------------------------------------------------------------------
