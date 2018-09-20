@@ -45,7 +45,7 @@ const standardizePhoneNumbers = (phoneNumbers) => {
 // ------------------------------------------------------------------------------------------------
 
 const onlyOddChars = (str) => {
-  return str.split('').filter(num => str.charAt(num) % 2 === 1).join('');
+  return str.split('').filter((num ,i) => i % 2).join('');
 };
 
 // ------------------------------------------------------------------------------------------------
