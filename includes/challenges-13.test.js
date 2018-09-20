@@ -45,7 +45,7 @@ const standardizePhoneNumbers = (phoneNumbers) => {
 // ------------------------------------------------------------------------------------------------
 
 const onlyOddChars = (str) => {
-  // Solution code here...
+  return str.split('').filter(num => str.charAt(num) % 2 === 1).join('');
 };
 
 // ------------------------------------------------------------------------------------------------
@@ -113,7 +113,18 @@ const unenrollBrook = (roster) => {
 const daysOfWeek = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
 
 const sortByDay = (eventStrings) => {
-  // Solution code here...
+  let result = [];
+
+  for(let i = 0; i < daysOfWeek.length; i++){
+    let subArr = [];
+    for(let k = 0; k <eventStrings.length;k++){
+      if (eventStrings[k].includes(daysOfWeek[i])){
+        subArr.push(eventStrings[k]);
+      }
+    }
+    result.push(subArr);
+  }
+  return result;
 };
 
 // ------------------------------------------------------------------------------------------------
@@ -124,7 +135,11 @@ const sortByDay = (eventStrings) => {
 // ------------------------------------------------------------------------------------------------
 
 const characterByIndex = (strs) => {
-  // Solution code here...
+  let result = [];
+  for (let i = 0; i < strs.length; i++) {
+    result.push(strs[i].charAt(i))
+  }
+  return result;
 };
 
 // ------------------------------------------------------------------------------------------------
